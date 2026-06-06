@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BRENT — a cinematic, beginner-friendly cybersecurity learning hub for ethical hacking, CTFs, and digital safety." />
+  <title>BRENT // Cybersecurity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Matrix / digital rain background -->
+  <canvas id="matrix" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- Boot loader -->
+  <div id="boot" class="boot">
+    <pre id="bootlog" class="bootlog"></pre>
+  </div>
+
+  <!-- Navbar -->
+  <header class="nav glass">
+    <a href="#home" class="brand">root@<span class="accent">brent</span>:~#</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#tutorials">Tutorials</a>
+      <a href="#tools">Tools</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="soundToggle" class="chip" title="Toggle sound effects" aria-pressed="false">🔊 SFX: OFF</button>
+      <button id="themeToggle" class="chip" title="Toggle theme">🌙 Dark</button>
+      <button id="loginBtn" class="chip chip-accent">Login</button>
+      <button id="burger" class="burger" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO / HOME -->
+  <section id="home" class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="kicker">// SECURE • LEARN • DEFEND</p>
+        <h1 class="glitch" data-text="BRENT">BRENT</h1>
+        <p class="lead"><span id="typed"></span><span class="caret">▋</span></p>
+        <div class="cta">
+          <a href="#tutorials" class="btn btn-primary">Start Learning ▸</a>
+          <a href="#tools" class="btn btn-ghost">Explore Tools</a>
+        </div>
+        <div class="stats">
+          <div><strong data-count="128">0</strong><span>Lessons</span></div>
+          <div><strong data-count="64">0</strong><span>CTF Labs</span></div>
+          <div><strong data-count="99">0</strong><span>% Ethical</span></div>
+        </div>
+      </div>
+
+      <!-- Fake hacker terminal -->
+      <div class="terminal glass" id="terminal">
+        <div class="term-bar">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="term-title">brent@kali: ~/ops</span>
+        </div>
+        <pre class="term-body" id="termBody"></pre>
+      </div>
+    </div>
+    <div class="mouse" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- Dashboard widgets -->
+  <section class="dash">
+    <div class="widget glass">
+      <h3>System Status</h3>
+      <ul class="status">
+        <li><span>Firewall</span><b class="ok">ACTIVE</b></li>
+        <li><span>VPN Tunnel</span><b class="ok">ENCRYPTED</b></li>
+        <li><span>Intrusion Detection</span><b class="ok">ONLINE</b></li>
+        <li><span>Threat Level</span><b class="warn" id="threat">LOW</b></li>
+      </ul>
+    </div>
+    <div class="widget glass">
+      <h3>Live Traffic</h3>
+      <canvas id="trafficChart" height="140"></canvas>
+    </div>
+    <div class="widget glass">
+      <h3>Network Map</h3>
+      <canvas id="netMap" height="140"></canvas>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <h2 class="section-title"><span class="hash">#</span> About Cybersecurity</h2>
+    <p class="section-sub">Cybersecurity is the practice of protecting systems, networks, and data from digital attacks. Here's the landscape, in plain language.</p>
+    <div class="cards">
+      <article class="card glass"><div class="icon">🛡️</div><h3>Confidentiality</h3><p>Keep data secret — only authorized people can read it. Encryption is your best friend.</p></article>
+      <article class="card glass"><div class="icon">✅</div><h3>Integrity</h3><p>Ensure data isn't tampered with. Hashes and signatures prove nothing changed in transit.</p></article>
+      <article class="card glass"><div class="icon">⚡</div><h3>Availability</h3><p>Keep services up and reachable. Defend against outages and denial-of-service attempts.</p></article>
+      <article class="card glass"><div class="icon">🧠</div><h3>The Human Layer</h3><p>Most breaches start with people. Awareness beats almost any firewall.</p></article>
+    </div>
+  </section>
+
+  <!-- TUTORIALS / LEARNING -->
+  <section id="tutorials" class="section">
+    <h2 class="section-title"><span class="hash">#</span> Ethical Hacking Tutorials</h2>
+    <p class="section-sub">Beginner-friendly paths. Always practice on systems you own or have explicit permission to test.</p>
+    <div class="cards">
+      <article class="card glass lift"><div class="icon">🔐</div><h3>Password Security</h3><p>Why length beats complexity, how hashing works, and using a password manager + 2FA.</p><span class="tag">Beginner</span></article>
+      <article class="card glass lift"><div class="icon">🎣</div><h3>Phishing Awareness</h3><p>Spot fake senders, hover before you click, and recognize urgency-based social engineering.</p><span class="tag">Beginner</span></article>
+      <article class="card glass lift"><div class="icon">🌐</div><h3>Network Security</h3><p>Understand ports, firewalls, VPNs, and how packets travel so you can defend them.</p><span class="tag">Core</span></article>
+      <article class="card glass lift"><div class="icon">🚩</div><h3>CTF for Beginners</h3><p>Capture The Flag basics: web, crypto, forensics, and recon — learn by solving puzzles.</p><span class="tag">Hands-on</span></article>
+      <article class="card glass lift"><div class="icon">🕵️</div><h3>OSINT Basics</h3><p>Open-source intelligence: how attackers profile targets, and how you reduce your footprint.</p><span class="tag">Core</span></article>
+      <article class="card glass lift"><div class="icon">🦠</div><h3>Malware 101</h3><p>How malware spreads, what it does, and the defensive habits that stop most of it cold.</p><span class="tag">Beginner</span></article>
+    </div>
+
+    <!-- Interactive password strength demo -->
+    <div class="demo glass">
+      <h3>🔓 Try It: Password Strength Meter</h3>
+      <input id="pwInput" type="text" placeholder="Type a password to test (demo only — don't use a real one)" autocomplete="off" />
+      <div class="meter"><div id="meterBar"></div></div>
+      <p id="pwHint" class="hint">Awaiting input…</p>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section id="tools" class="section">
+    <h2 class="section-title"><span class="hash">#</span> Cybersecurity Tools Showcase</h2>
+    <p class="section-sub">Industry-standard tools every defender should recognize. (Educational reference only.)</p>
+    <div class="tools-grid">
+      <div class="tool glass"><b>Nmap</b><span>Network mapper & port scanner for inventorying what's exposed.</span></div>
+      <div class="tool glass"><b>Wireshark</b><span>Packet analyzer to inspect exactly what crosses the wire.</span></div>
+      <div class="tool glass"><b>Burp Suite</b><span>Web app security testing & request interception.</span></div>
+      <div class="tool glass"><b>Metasploit</b><span>Exploitation framework used for authorized pentests.</span></div>
+      <div class="tool glass"><b>John the Ripper</b><span>Password hash auditing to find weak credentials.</span></div>
+      <div class="tool glass"><b>Hashcat</b><span>GPU-accelerated hash cracking for recovery & auditing.</span></div>
+      <div class="tool glass"><b>Aircrack-ng</b><span>Wi-Fi security auditing suite.</span></div>
+      <div class="tool glass"><b>OWASP ZAP</b><span>Open-source web vulnerability scanner.</span></div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news" class="section">
+    <h2 class="section-title"><span class="hash">#</span> News &amp; Updates</h2>
+    <p class="section-sub">A simulated feed to show the layout — wire it to a real API anytime.</p>
+    <div class="feed">
+      <article class="news glass"><span class="date">2026 · 06</span><h3>Passkeys go mainstream</h3><p>Major platforms phase out passwords in favor of phishing-resistant passkeys.</p></article>
+      <article class="news glass"><span class="date">2026 · 05</span><h3>AI-assisted defense</h3><p>SOC teams adopt AI copilots to triage alerts faster and cut response times.</p></article>
+      <article class="news glass"><span class="date">2026 · 04</span><h3>Zero-trust by default</h3><p>"Never trust, always verify" becomes the baseline for enterprise networks.</p></article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <h2 class="section-title"><span class="hash">#</span> Contact</h2>
+    <p class="section-sub">Questions or feedback? Send a (demo) transmission.</p>
+    <form class="contact glass" id="contactForm" novalidate>
+      <div class="row">
+        <input type="text" id="cName" placeholder="Handle / Name" required />
+        <input type="email" id="cEmail" placeholder="you@domain.com" required />
+      </div>
+      <textarea id="cMsg" rows="4" placeholder="Your message…" required></textarea>
+      <button type="submit" class="btn btn-primary">Transmit ▸</button>
+      <p id="formMsg" class="hint"></p>
+    </form>
+  </section>
+
+  <!-- Security notice -->
+  <div class="notice glass">
+    ⚠️ <strong>BRENT is for educational and ethical cybersecurity purposes only.</strong>
+    Unauthorized hacking or illegal activity is strictly prohibited.
+  </div>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> BRENT // Stay curious. Stay ethical.</p>
+  </footer>
+
+  <!-- Login modal (demo only) -->
+  <div class="modal" id="loginModal" aria-hidden="true">
+    <div class="modal-card glass">
+      <button class="modal-close" id="closeLogin" aria-label="Close">✕</button>
+      <h3>Secure Access <small>(demo)</small></h3>
+      <form id="loginForm">
+        <label>Username<input type="text" value="root" /></label>
+        <label>Password<input type="password" placeholder="••••••••" /></label>
+        <button type="submit" class="btn btn-primary">Authenticate ▸</button>
+        <p id="loginMsg" class="hint"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
