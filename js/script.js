@@ -183,17 +183,6 @@
   $('#burger').addEventListener('click', () => $('#navLinks').classList.toggle('show'));
   document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => $('#navLinks').classList.remove('show')));
 
-  /* ---------- Login modal ---------- */
-  const modal = $('#loginModal');
-  $('#loginBtn').addEventListener('click', () => modal.classList.add('open'));
-  $('#closeLogin').addEventListener('click', () => modal.classList.remove('open'));
-  modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
-  $('#loginForm').addEventListener('submit', e => {
-    e.preventDefault(); beep(880, .08);
-    $('#loginMsg').textContent = '✓ Access granted (demo) — welcome, operator.';
-    $('#loginMsg').style.color = 'var(--neon)';
-  });
-
   /* ---------- Contact form ---------- */
   $('#contactForm').addEventListener('submit', e => {
     e.preventDefault();

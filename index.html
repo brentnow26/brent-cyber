@@ -34,7 +34,7 @@
     <div class="nav-actions">
       <button id="soundToggle" class="chip" title="Toggle sound effects" aria-pressed="false">🔊 SFX: OFF</button>
       <button id="themeToggle" class="chip" title="Toggle theme">🌙 Dark</button>
-      <button id="loginBtn" class="chip chip-accent">Login</button>
+      <a href="admin.html" class="chip chip-accent">Admin Login</a>
       <button id="burger" class="burger" aria-label="Menu">☰</button>
     </div>
   </header>
@@ -175,20 +175,6 @@
   <footer class="footer">
     <p>© <span id="year"></span> BRENT // Stay curious. Stay ethical.</p>
   </footer>
-
-  <!-- Login modal (demo only) -->
-  <div class="modal" id="loginModal" aria-hidden="true">
-    <div class="modal-card glass">
-      <button class="modal-close" id="closeLogin" aria-label="Close">✕</button>
-      <h3>Secure Access <small>(demo)</small></h3>
-      <form id="loginForm">
-        <label>Username<input type="text" value="root" /></label>
-        <label>Password<input type="password" placeholder="••••••••" /></label>
-        <button type="submit" class="btn btn-primary">Authenticate ▸</button>
-        <p id="loginMsg" class="hint"></p>
-      </form>
-    </div>
-  </div>
 
   <script src="js/script.js"></script>
 </body>

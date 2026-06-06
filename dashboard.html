@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRENT // Admin Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="dash-body">
+  <canvas id="matrix" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="dash-top glass">
+    <span class="brand">root@brent:~#</span>
+    <span class="spacer"></span>
+    <div class="profile" title="Admin profile">
+      <div class="avatar">🛡️</div>
+      <div class="who">Admin<small id="whoName">admin</small></div>
+    </div>
+    <button class="logout-btn" id="logoutBtn">⏻ Logout</button>
+  </header>
+
+  <section class="dash-hero">
+    <h1>Control Center</h1>
+    <p>Welcome back, <span id="welcomeName">admin</span>. Session <b id="sessMode">local</b> · Auto-lock after 2 min idle.</p>
+  </section>
+
+  <div class="kpis">
+    <div class="kpi glass"><b data-count="1342">0</b><span>Blocked Threats</span></div>
+    <div class="kpi glass"><b data-count="98">0</b><span>% Uptime</span></div>
+    <div class="kpi glass"><b data-count="27">0</b><span>Active Sessions</span></div>
+    <div class="kpi glass"><b data-count="5">0</b><span>Open Alerts</span></div>
+  </div>
+
+  <div class="dash-panels">
+    <div class="panel glass">
+      <h3>Live Security Log</h3>
+      <ul class="log" id="liveLog"></ul>
+    </div>
+    <div class="panel glass">
+      <h3>Quick Actions</h3>
+      <ul class="log">
+        <li><span class="t">▸</span> Run vulnerability scan</li>
+        <li><span class="t">▸</span> Rotate API keys</li>
+        <li><span class="t">▸</span> Review access requests</li>
+        <li><span class="t">▸</span> Export audit report</li>
+        <li><span class="t">▸</span> Lock screen now (idle 2 min)</li>
+      </ul>
+    </div>
+    <div class="panel glass">
+      <h3>System Health</h3>
+      <ul class="log">
+        <li><span class="t">●</span> Firewall — ACTIVE</li>
+        <li><span class="t">●</span> IDS/IPS — ONLINE</li>
+        <li><span class="t">●</span> Backups — 04:00 UTC OK</li>
+        <li><span class="t">●</span> TLS certs — valid 240d</li>
+        <li><span class="t">●</span> Storage — 38% used</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Lock screen -->
+  <div class="lock" id="lockScreen" aria-hidden="true">
+    <div class="lock-card glass">
+      <div class="ico">🔒</div>
+      <h2>SESSION LOCKED</h2>
+      <p>Inactivity detected. Re-enter your password to continue.</p>
+      <input type="password" id="lockPw" placeholder="Password" />
+      <button class="auth-btn" id="unlockBtn"><span class="btn-label">Unlock ▸</span></button>
+      <p class="lock-msg" id="lockMsg"></p>
+    </div>
+  </div>
+
+  <script src="js/matrix.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

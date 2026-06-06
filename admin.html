@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRENT // Admin Access</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="auth-body">
+  <canvas id="matrix" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <a href="index.html" class="back-link">‹ back to site</a>
+
+  <main class="auth-wrap">
+    <section class="auth-card glass">
+      <div class="auth-head">
+        <div class="auth-logo">⬡</div>
+        <h1 class="auth-title">BRENT<span>::ADMIN</span></h1>
+        <pre class="auth-term" id="authTerm"></pre>
+      </div>
+
+      <form id="loginForm" class="auth-form" autocomplete="off" novalidate>
+        <div class="field">
+          <label for="username">Username</label>
+          <div class="input-wrap">
+            <span class="ic">👤</span>
+            <input type="text" id="username" name="username" placeholder="admin" autocomplete="username" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <span class="ic">🔑</span>
+            <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password" required />
+            <button type="button" class="toggle-pw" id="togglePw" aria-label="Show password">👁</button>
+          </div>
+        </div>
+
+        <div class="row-between">
+          <label class="remember"><input type="checkbox" id="remember" /> <span>Remember me</span></label>
+          <a href="#" class="forgot" id="forgotLink">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="auth-btn" id="loginBtn">
+          <span class="btn-label">Authenticate ▸</span>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+
+        <p class="auth-msg" id="authMsg" role="status"></p>
+      </form>
+
+      <p class="auth-foot">🔒 Admin-only access · Local authentication enabled</p>
+    </section>
+
+    <p class="auth-disclaimer">BRENT is for educational and ethical cybersecurity purposes only. Unauthorized access is strictly prohibited.</p>
+  </main>
+
+  <!-- Success overlay -->
+  <div class="success-overlay" id="successOverlay" aria-hidden="true">
+    <div class="success-core">
+      <div class="success-ring"></div>
+      <div class="success-check">✓</div>
+      <p id="successText">ACCESS GRANTED</p>
+    </div>
+  </div>
+
+  <script src="js/matrix.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
